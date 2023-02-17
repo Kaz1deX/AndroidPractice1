@@ -14,7 +14,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         Context context = getApplicationContext();
         CharSequence text = "Hello toast!";
         int duration = Toast.LENGTH_SHORT;
@@ -82,5 +81,17 @@ public class MainActivity extends AppCompatActivity {
         toast.show();
 
         Log.wtf(TAG, "Показ очень серьезной ошибки");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Context context = getApplicationContext();
+        CharSequence text = "Toast onRestart!";
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+
+        Log.i(TAG, "Показ информации");
     }
 }
